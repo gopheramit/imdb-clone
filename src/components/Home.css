@@ -1,4 +1,38 @@
 .movie-container{
     display: flex;
     flex-direction: row;
+   
+}
+
+.movie-wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    /* justify-content: space-between; */
+    column-gap: 115px;
+    
+}
+
+p {
+    padding-left: 20px;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ h3{
+    padding-left: 15px;
+    padding-right: 1px;
+    
+}
+
+.extreme-right{
+    margin-right: 15px;
+}
+
+
+.btn-primary{
+margin-left: 40%;
 }

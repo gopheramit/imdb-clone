@@ -98,7 +98,7 @@ function Home() {
   };
   const editMovie = (id) => {
     setShowEditPanel(!showEditPanel);
-    setMovie({...movie,id:id})
+    setMovie({ ...movie, id: id });
   };
   useEffect(() => {
     getMovieDetails();
@@ -123,34 +123,32 @@ function Home() {
     e.preventDefault();
     console.log(movie, "movie to edited");
     axios
-    .put("http://localhost:8080/movies", movie)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
+      .put("http://localhost:8080/movies", movie)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   console.log(movies, "finalMovies");
   return (
     <div>
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Year Of Release</th>
-            <th scope="col">Plot</th>
-            <th scope="col">Actor Name</th>
-            <th scope="col">Producer Name</th>
-          </tr>
-        </thead>
-      </table>
+      <div className="movie-wrapper">
+        <h3>Name</h3>
+        <h3>Year Of Release</h3>
+        <h3>Plot</h3>
+        <h3>Actor Name</h3>
+        <h3 className="extreme-right">Producer Name</h3>
+      </div>
       {movies.map((item) => (
-        <div className="blog-priview" key={item.id}>
-          <h2>{item.name}</h2>
+        <div className="movie-container" key={item.id}>
+          <p>{item.name}</p>
+          <p>{item.YearOfRelease}</p>
+          <p>{item.plot}</p>
           <p>{item.actorName}</p>
-          <button onClick={() => editMovie(item.id)}>Edit Details</button>
+          <p>{item.producerName}</p>
+          {/* <button onClick={() => editMovie(item.id)}>Edit Details</button> */}
           {showEditPanel ? (
             <div>
               <form onSubmit={editMovieDetails}>
@@ -198,7 +196,7 @@ function Home() {
         </div>
       ))}
 
-      <button onClick={addNewMovie}>Add New Movie</button>
+      <button onClick={addNewMovie} className="btn-primary">Add New Movie</button>
     </div>
   );
 }
